@@ -1,11 +1,29 @@
-"Use Vim settings, rather then Vi settings (much better!)
-"This must be first, because it changes other options as a side effect
-set nocompatible
-set backspace=indent,eol,start  "allow backspacing over everything in insert mode
-set history=1000  "store lots of :cmdline history
-set showcmd  "show incomplete cmds down the bottom
-set showmode  "show current mode down the bottom
-set nu
+colorscheme emacs
+
+set nocompatible "This must be first, because it changes other options as a side effect
+set backspace=indent,eol,start
+set history=1000
+set showcmd
+set showmode
 set sts=2
 set sw=2
-colorscheme emacs
+set browsedir=current
+
+map <F7> :set invnumber<CR>
+
+if has("gui_running") 
+  set cursorline
+  set invnumber
+  set mousehide
+  set guifont=Monaco:h14
+  set guitablabel=(%N%M)\ %f
+  set helplang=en
+  set linespace=-5
+  set mouse=a
+  set termencoding=utf-8
+  set guioptions=egmrt
+endif
+
+if has("gui_macvim")
+  map <D-T> :CommandT<CR>
+endif
