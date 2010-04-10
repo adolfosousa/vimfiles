@@ -8,3 +8,4 @@ set showmode  "show current mode down the bottom
 set nu
 set sts=2
 set sw=2
+colorscheme emacs
