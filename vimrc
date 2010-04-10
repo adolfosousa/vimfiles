@@ -8,12 +8,13 @@ set showmode
 set sts=2
 set sw=2
 set browsedir=current
+set listchars=tab:▸\ ,eol:¬
 
+nmap <leader>l :set list!<CR>
 map <F7> :set invnumber<CR>
 
 if has("gui_running") 
   set cursorline
-  set invnumber
   set mousehide
   set guifont=Monaco:h14
   set guitablabel=(%N%M)\ %f
