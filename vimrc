@@ -9,6 +9,14 @@ set sts=2
 set sw=2
 set browsedir=current
 set listchars=tab:▸\ ,eol:¬
+set vb
+set lines=999
+set columns=999
+set nu
+
+syntax on
+
+filetype plugin indent on
 
 nmap <leader>l :set list!<CR>
 map <F7> :set invnumber<CR>
