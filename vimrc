@@ -1,5 +1,4 @@
 colorscheme emacs
-
 set nocompatible "This must be first, because it changes other options as a side effect
 set backspace=indent,eol,start
 set history=1000
@@ -13,11 +12,8 @@ set vb
 set lines=999
 set columns=999
 set nu
-
 syntax on
-
 filetype plugin indent on
-
 nmap <leader>l :set list!<CR>
 map <F7> :set invnumber<CR>
 
@@ -31,8 +27,5 @@ if has("gui_running")
   set mouse=a
   set termencoding=utf-8
   set guioptions=egmrt
-endif
-
-if has("gui_macvim")
   map <D-T> :CommandT<CR>
 endif
