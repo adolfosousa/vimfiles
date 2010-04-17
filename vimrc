@@ -12,6 +12,8 @@ set vb
 set lines=999
 set columns=999
 set nu
+set laststatus=2
+set ruler
 syntax on
 filetype plugin indent on
 nmap <leader>l :set list!<CR>
