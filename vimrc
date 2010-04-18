@@ -23,6 +23,8 @@ set cmdheight=2
 set lines=999
 set columns=999
 set listchars=tab:▸\ ,eol:¬
+set scrolloff=3
+set tags=./tags;
 
 syntax on
 filetype plugin indent on
