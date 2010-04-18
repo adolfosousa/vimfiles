@@ -27,9 +27,18 @@ set listchars=tab:▸\ ,eol:¬
 syntax on
 filetype plugin indent on
 
-nmap <leader>l :set list!<CR>
-map <F7> :set invnumber<CR>
 :nma ; :
+nmap <leader>l :set list!<CR>
+map <leader>e :Explore<CR>
+map <F7> :set invnumber<CR>
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
 
 if has("gui_running") 
   set cursorline
