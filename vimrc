@@ -3,11 +3,9 @@ colorscheme emacs
 set nocompatible "This must be first, because it changes other options as a side effect
 set showcmd
 set showmode
-set browsedir=current
 set vb
 set nu
 set ruler "show the cursor position all the time
-set expandtab
 set autoread
 set hlsearch
 set ignorecase
@@ -16,17 +14,16 @@ set ignorecase smartcase
 
 set backspace=indent,eol,start
 set history=1000
-set sts=2
-set sw=2
+set ts=2 sts=2 sw=2 expandtab "tabstop (width of tab) softtabstop shiftwidth expandtab (spaces in place of tabs)
 set laststatus=2 "always show status line
-set tabstop=6
 set numberwidth=2
 set cmdheight=2
 set lines=999
 set columns=999
-set listchars=tab:▸\ ,eol:¬
-set scrolloff=3
-set tags=./tags;
+set browsedir=current
+set listchars=tab:▸\ ,eol:¬ "invisible chars
+set scrolloff=3 "invisible lines on top and bottom of the page
+set tags=./tags; "tells vim about the tag file
 
 syntax on
 filetype plugin indent on
@@ -42,6 +39,8 @@ map  <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map  <C-t> <esc>:tabnew<CR>
 nmap <leader>l :set list!<CR>
+
+"disabling arrow keys 
 noremap  <Up> ""
 noremap! <Up> <Esc>
 noremap  <Down> ""
