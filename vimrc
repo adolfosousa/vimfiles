@@ -22,8 +22,7 @@ set lines=999
 set columns=999
 set browsedir=current
 set listchars=tab:▸\ ,eol:¬ "invisible chars
-set scrolloff=3 "invisible lines on top and bottom of the page
-set tags=./tags; "tells vim about the tag file
+set tags=./tags; "tells vim about the tags file
 
 syntax on
 filetype plugin indent on
