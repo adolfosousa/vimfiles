@@ -50,6 +50,18 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 
+if has("gui_running") 
+  set cursorline
+  set mousehide
+  set guifont=Monaco:h14
+  set guitablabel=(%N%M)\ %f
+  set helplang=en
+  set linespace=-5
+  set mouse=a
+  set termencoding=utf-8
+  set guioptions=egmrt
+endif
+
 if has("autocmd") "only do this part when compiled with support for autocommands
   filetype on "enable file type detection
   
@@ -64,17 +76,19 @@ if has("autocmd") "only do this part when compiled with support for autocommands
   
   "treat .rss and .atom files as XML
   autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
+  
+  "strip trailing spaces before saving
+  autocmd BufWritePre *.rb,*.py,*.js,*.html,*.css,*.yaml,*.xml :call <SID>StripTrailingWhitespaces()
 endif
 
-
-if has("gui_running") 
-  set cursorline
-  set mousehide
-  set guifont=Monaco:h14
-  set guitablabel=(%N%M)\ %f
-  set helplang=en
-  set linespace=-5
-  set mouse=a
-  set termencoding=utf-8
-  set guioptions=egmrt
-endif
+function! <SID>StripTrailingWhitespaces()
+    "preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    "clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
