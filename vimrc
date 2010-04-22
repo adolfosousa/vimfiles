@@ -27,12 +27,13 @@ set tags=./tags; "tells vim about the tags file
 syntax on
 filetype plugin indent on
 
-:nma ; :
+:nma ; : "semicolon turns colon
 map  <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map  <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map  <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
-map  <F7> :set invnumber<CR>
-map  <Leader>c :TComment<CR>
+map  <Leader>c :TComment<CR> "to comment a line
+map  <Leader>/ :noh<CR> "to clear search highlights
+map  <F7> :set invnumber<CR> "to show line numbers
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 map  <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
