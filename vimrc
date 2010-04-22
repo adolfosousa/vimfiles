@@ -27,7 +27,7 @@ set tags=./tags; "tells vim about the tags file
 syntax on
 filetype plugin indent on
 
-:nma ; : "semicolon turns colon
+:nma ; :
 map  <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map  <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map  <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
@@ -39,6 +39,10 @@ map  <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map  <C-t> <esc>:tabnew<CR>
 nmap <leader>l :set list!<CR>
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
 
 "disabling arrow keys 
 noremap  <Up> ""
