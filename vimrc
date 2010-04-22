@@ -1,28 +1,29 @@
 colorscheme emacs
 
-set nocompatible "This must be first, because it changes other options as a side effect
+set nocompatible " this must be first, because it changes other options as a side effect
 set showcmd
 set showmode
 set vb
 set nu
-set ruler "show the cursor position all the time
+set ruler " show the cursor position all the time
 set autoread
 set hlsearch
 set ignorecase
 set autoindent
 set ignorecase smartcase
+set hidden  " treat hidden buffers more liberally
 
 set backspace=indent,eol,start
 set history=1000
-set ts=2 sts=2 sw=2 expandtab "tabstop (width of tab) softtabstop shiftwidth expandtab (spaces in place of tabs)
-set laststatus=2 "always show status line
+set ts=2 sts=2 sw=2 expandtab " tabstop (width of tab) softtabstop shiftwidth expandtab (spaces in place of tabs)
+set laststatus=2 " always show status line
 set numberwidth=2
 set cmdheight=2
 set lines=999
 set columns=999
 set browsedir=current
-set listchars=tab:▸\ ,eol:¬ "invisible chars
-set tags=./tags; "tells vim about the tags file
+set listchars=tab:▸\ ,eol:¬ " invisible chars
+set tags=./tags; " tells vim about the tags file
 
 syntax on
 filetype plugin indent on
@@ -31,9 +32,9 @@ filetype plugin indent on
 map  <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map  <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map  <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
-map  <Leader>c :TComment<CR> "to comment a line
-map  <Leader>/ :noh<CR> "to clear search highlights
-map  <F7> :set invnumber<CR> "to show line numbers
+map  <Leader>c :TComment<CR> " to comment a line
+map  <Leader>/ :noh<CR> " to clear search highlights
+map  <F7> :set invnumber<CR> " to show line numbers
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 map  <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
@@ -44,16 +45,16 @@ nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-]> >gv
 
-"disabling arrow keys 
-noremap  <Up> ""
-noremap! <Up> <Esc>
-noremap  <Down> ""
-noremap! <Down> <Esc>
-noremap  <Left> ""
-noremap! <Left> <Esc>
-noremap  <Right> ""
-noremap! <Right> <Esc>
-
+" disabling arrow keys 
+" noremap  <Up> ""
+" noremap! <Up> <Esc>
+" noremap  <Down> ""
+" noremap! <Down> <Esc>
+" noremap  <Left> ""
+" noremap! <Left> <Esc>
+" noremap  <Right> ""
+" noremap! <Right> <Esc>
+ 
 if has("gui_running") 
   set cursorline
   set mousehide
@@ -66,33 +67,33 @@ if has("gui_running")
   set guioptions=egmrt
 endif
 
-if has("autocmd") "only do this part when compiled with support for autocommands
-  filetype on "enable file type detection
+if has("autocmd") " only do this part when compiled with support for autocommands
+  filetype on " enable file type detection
   
-  "syntax of these languages is fussy over tabs Vs spaces
+  " syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
   
-  "customisations based on house-style (arbitrary)
+  " customisations based on house-style (arbitrary)
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
   
-  "treat .rss and .atom files as XML
+  " treat .rss and .atom files as XML
   autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
   
-  "strip trailing spaces before saving
+  " strip trailing spaces before saving
   autocmd BufWritePre *.rb,*.py,*.js,*.html,*.css,*.yaml,*.xml :call <SID>StripTrailingWhitespaces()
 endif
 
 function! <SID>StripTrailingWhitespaces()
-    "preparation: save last search, and cursor position.
+    " preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
     let c = col(".")
-    " Do the business:
+    " do the business:
     %s/\s\+$//e
-    "clean up: restore previous search history, and cursor position
+    " clean up: restore previous search history, and cursor position
     let @/=_s
     call cursor(l, c)
 endfunction
