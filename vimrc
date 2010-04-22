@@ -50,6 +50,23 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 
+if has("autocmd") "only do this part when compiled with support for autocommands
+  filetype on "enable file type detection
+  
+  "syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+  
+  "customisations based on house-style (arbitrary)
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+  
+  "treat .rss and .atom files as XML
+  autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
+endif
+
+
 if has("gui_running") 
   set cursorline
   set mousehide
