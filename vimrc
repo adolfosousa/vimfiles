@@ -19,8 +19,6 @@ set ts=2 sts=2 sw=2 expandtab " tabstop (width of tab) softtabstop shiftwidth ex
 set laststatus=2 " always show status line
 set numberwidth=2
 set cmdheight=2
-set lines=999
-set columns=999
 set browsedir=current
 set listchars=tab:▸\ ,eol:¬ " invisible chars
 set tags=./tags; " tells vim about the tags file
@@ -76,7 +74,7 @@ map <D-0> :tablast<CR>
 " noremap! <Left> <Esc>
 " noremap  <Right> ""
 " noremap! <Right> <Esc>
- 
+
 if has("gui_running") 
   set cursorline
   set mousehide
@@ -87,35 +85,37 @@ if has("gui_running")
   set mouse=a
   set termencoding=utf-8
   set guioptions=egmrt
+  set lines=999
+  set columns=999
 endif
 
 if has("autocmd") " only do this part when compiled with support for autocommands
   filetype on " enable file type detection
-  
+
   " syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-  
+
   " customisations based on house-style (arbitrary)
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
-  
+
   " treat .rss and .atom files as XML
   autocmd BufNewFile,BufRead *.rss, *.atom setfiletype xml
-  
+
   " strip trailing spaces before saving
   autocmd BufWritePre *.rb,*.py,*.js,*.html,*.css,*.yaml,*.xml :call <SID>StripTrailingWhitespaces()
 endif
 
 function! <SID>StripTrailingWhitespaces()
-    " preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " do the business:
-    %s/\s\+$//e
-    " clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
+  " preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " do the business:
+  %s/\s\+$//e
+  " clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
 endfunction
