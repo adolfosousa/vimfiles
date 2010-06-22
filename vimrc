@@ -12,6 +12,7 @@ set ignorecase
 set autoindent
 set ignorecase smartcase
 set hidden  " treat hidden buffers more liberally
+set visualbell t_vb= "disable visual bell
 
 set backspace=indent,eol,start
 set history=1000
