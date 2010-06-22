@@ -27,6 +27,11 @@ set tags=./tags; " tells vim about the tags file
 syntax on
 filetype plugin indent on
 
+"necessary on some Linux distros for pathogen to properly load bundles
+filetype off
+"load pathogen managed plugins
+call pathogen#runtime_append_all_bundles()
+
 :nma ; :
 map  <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map  <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
