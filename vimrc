@@ -82,6 +82,11 @@ map <D-0> :tablast<CR>
 " noremap  <Right> ""
 " noremap! <Right> <Esc>
 
+"map to CommandT TextMate style finder
+nnoremap <leader>t :CommandT<CR>
+let g:CommandTMaxHeight=10
+let g:CommandTMatchWindowAtTop=1
+
 if has("gui_running") 
   set cursorline
   set mousehide
