@@ -22,6 +22,3 @@
 [submodule "bundle/pastie"]
 	path = bundle/pastie
 	url = git://github.com/tpope/vim-pastie.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = git://github.com/akitaonrails/Command-T.git
