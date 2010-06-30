@@ -84,8 +84,9 @@ map <D-0> :tablast<CR>
 
 "map to CommandT TextMate style finder
 nnoremap <leader>t :CommandT<CR>
-let g:CommandTMaxHeight=10
-let g:CommandTMatchWindowAtTop=1
+let g:CommandTMaxHeight=7
+"let g:CommandTMatchWindowAtTop=1
+"map <D-t> :CommandT<CR>
 
 if has("gui_running") 
   set cursorline
