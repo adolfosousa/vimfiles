@@ -89,8 +89,10 @@ let g:CommandTMatchWindowAtTop=1
 map <D-t> :CommandT<CR>
 
 " NERDTree
-map <leader>n <ESC>:NERDTree<CR>
-nnoremap <silent> <leader>f :call FindInNERDTree()<CR> 
+nmap <silent> <leader>p :NERDTreeToggle<CR>
+
+" buffer explorer
+nnoremap <leader>b :BufExplorer<cr>
 
 if has("gui_running") 
   set cursorline
