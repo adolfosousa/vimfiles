@@ -27,9 +27,9 @@ set tags=./tags; " tells vim about the tags file
 syntax on
 filetype plugin indent on
 
-"necessary on some Linux distros for pathogen to properly load bundles
+" necessary on some Linux distros for pathogen to properly load bundles
 filetype off
-"load pathogen managed plugins
+" load pathogen managed plugins
 call pathogen#runtime_append_all_bundles()
 
 :nma ; :
@@ -83,21 +83,16 @@ map <D-0> :tablast<CR>
 " noremap! <Right> <Esc>
 
 " map to CommandT TextMate style finder
-nnoremap <leader>t :CommandT<CR>
 let g:CommandTMaxHeight=7
 let g:CommandTMatchWindowAtTop=1
-map <D-t> :CommandT<CR>
+nnoremap <D-t> :CommandT<CR>
 
 " NERDTree
 nmap <silent> <leader>p :NERDTreeToggle<CR>
 
-" buffer explorer
-nnoremap <leader>b :BufExplorer<cr>
-
 if has("gui_running") 
   set cursorline
   set mousehide
-  set guifont=Monaco:h14
   set guitablabel=(%N%M)\ %f
   set helplang=en
   set linespace=-5
@@ -106,6 +101,17 @@ if has("gui_running")
   set guioptions=egmrt
   set lines=999
   set columns=999
+  if has("gui_mac") || has("gui_macvim")
+    set guifont=Menlo:h14
+  endif
+  if has("gui_gnome")
+    set term=gnome-256color
+    set guifont=Inconsolata\ Medium\ 12
+  endif    
+  if has("gui_win32") || has("gui_win32s")
+    set guifont=Consolas:h12
+    set enc=utf-8
+  endif
 endif
 
 if has("autocmd") " only do this part when compiled with support for autocommands

@@ -8,4 +8,5 @@ task :create_links_at_home do
   system("rm -rf ~/.vim ~/.vimrc")
   system("ln -s #{Dir.pwd} ~/.vim")
   system("ln -s #{Dir.pwd}/vimrc ~/.vimrc")
+  system("ln -s #{Dir.pwd}/gvimrc ~/.gvimrc")
 end
