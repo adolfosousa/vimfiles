@@ -19,7 +19,7 @@ set history=1000
 set ts=2 sts=2 sw=2 expandtab " tabstop (width of tab) softtabstop shiftwidth expandtab (spaces in place of tabs)
 set laststatus=2 " always show status line
 set numberwidth=2
-set cmdheight=2
+set cmdheight=1
 set browsedir=current
 set listchars=tab:▸\ ,eol:¬ " invisible chars
 set tags=./tags; " tells vim about the tags file
@@ -82,11 +82,15 @@ map <D-0> :tablast<CR>
 " noremap  <Right> ""
 " noremap! <Right> <Esc>
 
-"map to CommandT TextMate style finder
+" map to CommandT TextMate style finder
 nnoremap <leader>t :CommandT<CR>
 let g:CommandTMaxHeight=7
-"let g:CommandTMatchWindowAtTop=1
-"map <D-t> :CommandT<CR>
+let g:CommandTMatchWindowAtTop=1
+map <D-t> :CommandT<CR>
+
+" NERDTree
+map <leader>n <ESC>:NERDTree<CR>
+nnoremap <silent> <leader>f :call FindInNERDTree()<CR> 
 
 if has("gui_running") 
   set cursorline
