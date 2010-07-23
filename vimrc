@@ -89,6 +89,7 @@ nnoremap <D-t> :CommandT<CR>
 
 " NERDTree
 nmap <silent> <leader>p :NERDTreeToggle<CR>
+nmap <silent> <leader>f :NERDTreeFind<CR> 
 
 if has("gui_running") 
   set cursorline
