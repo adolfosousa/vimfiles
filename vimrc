@@ -96,7 +96,6 @@ if has("gui_running")
   set mousehide
   set guitablabel=(%N%M)\ %f
   set helplang=en
-  set linespace=-5
   set mouse=a
   set termencoding=utf-8
   set guioptions=egmrt
