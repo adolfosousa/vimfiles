@@ -91,7 +91,8 @@ nnoremap <D-t> :CommandT<CR>
 nmap <silent> <leader>p :NERDTreeToggle<CR>
 nmap <silent> <leader>f :NERDTreeFind<CR> 
 
-if has("gui_running") 
+if has("gui_running")
+  colorscheme mac_classic
   set cursorline
   set mousehide
   set guitablabel=(%N%M)\ %f
