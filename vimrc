@@ -91,6 +91,16 @@ nnoremap <D-t> :CommandT<CR>
 nmap <silent> <leader>p :NERDTreeToggle<CR>
 nmap <silent> <leader>f :NERDTreeFind<CR> 
 
+" DelimitMate
+let b:delimitMate="(:),[:],{:},<:>"
+let b:delimitMate_autoclose=1
+let b:delimitMate_excluded_ft=""
+let b:delimitMate_expand_cr=1
+let b:delimitMate_expand_space=1
+let b:delimitMate_matchpairs="(:),[:],{:},<:>"
+let b:delimitMate_quotes="\" ' ` *"
+let b:delimitMate_visual_leader="f"
+
 if has("gui_running")
   colorscheme mac_classic
   set cursorline
