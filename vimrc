@@ -40,7 +40,7 @@ map  <Leader>c :TComment<CR> " to comment a line
 map  <Leader>/ :noh<CR> " to clear search highlights
 map  <F7> :set invnumber<CR> " to show line numbers
 map  <F5> :e!<CR> " to read file from disk
-vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+" vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 map  <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map  <C-t> <esc>:tabnew<CR>
@@ -71,6 +71,11 @@ map <D-7> 7gt
 map <D-8> 8gt
 map <D-9> 9gt
 map <D-0> :tablast<CR>
+
+" buffer switching bindings
+set wildchar=<Tab> wildmenu wildmode=full
+set wildcharm=<C-Z>
+nnoremap <leader>b :b <C-Z>
 
 " disabling arrow keys 
 " noremap  <Up> ""
