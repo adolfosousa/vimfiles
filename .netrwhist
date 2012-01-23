@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/adolfosousa/projects/locaweb/cloud/vegas'
-let g:netrw_dirhist_2='/Users/adolfosousa/projects/locaweb/cloud/nephelae'
-let g:netrw_dirhist_3='/Users/adolfosousa/projects/locaweb/cloud/quantum'
-let g:netrw_dirhist_4='/Users/adolfosousa/projects/locaweb/cloud/nephelae'
-let g:netrw_dirhist_5='/Users/adolfosousa/projects/locaweb/cloud/locaweb-cloud-data'
-let g:netrw_dirhist_6='/Users/adolfosousa/projects/locaweb/cloud/nephelae'
